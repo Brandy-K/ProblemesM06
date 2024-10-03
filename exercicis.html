@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemes</title>
+    <style>
+    
+    </style>
+    
+</head>
+<body>
+    <h1>Number Problems Solutions</h1>
+
+    <!-- Problem 1: Check if value is a number -->
+    <h5>Problema 1: Check if it's a number</h5>
+    <label for="numberCheck">Enter a value:</label>
+    <input type="text" id="numberCheck">
+    <button onclick="checkIfNumber()">Enter</button>
+    
+
+    <!-- Problem 2: Check if it's an integer or a decimal -->
+    <h5>Problema 2: Check if it's an integer or a decimal</h5>
+    <label for="integerCheck">Enter a number:</label>
+    <input type="text" id="integerCheck">
+    <button onclick="checkIfIntegerOrDecimal()">Enter</button>
+    
+
+    <!-- Problem 3: Temperature conversion -->
+    <h5>Problema 3: Temperature Conversion</h5>
+    <label for="conversion">Convert to:</label>
+    <select id="conversion">
+        <option value="C">Celsius</option>
+        <option value="F">Fahrenheit</option>
+    </select><br>
+    <label for="temperature">Enter temperature:</label>
+    <input type="number" id="temperature">
+    <button onclick="convertTemperature()">Enter</button>
+ 
+
+    <!-- Problem 4: Phone call cost calculator -->
+    <h5>Problema 4: Phone Call Cost Calculator</h5>
+    <label for="minutes">Enter call duration in minutes:</label>
+    <input type="number" id="minutes"><br>
+    <label for="seconds">Enter call duration in seconds:</label>
+    <input type="number" id="seconds"><br>
+    <button onclick="calculateCallCost()">Enter</button>
+
+
+    <!-- Problem 5: Check if 5-digit number starts and ends with the same digit -->
+    <h5>Problema 5: Check 5-Digit Number</h5>
+    <label for="fiveDigit">Enter a 5-digit number:</label>
+    <input type="text" id="fiveDigit">
+    <button onclick="checkFiveDigitNumber()">Enter</button>
+    
+      <!-- Problem 6: Check if word ends with a number or a letter -->
+<h5>Problema 6: Check if Word Ends with a Number or Letter</h5>
+<label for="wordEnding">Enter a word:</label>
+<input type="text" id="wordEnding">
+<button onclick="checkWordEnding()">Enter</button>
+
+
+<!-- Problem 7: Capitalize first letter of a word -->
+<h5>Problema 7: Capitalize First Letter</h5>
+<label for="capitalizeWord">Enter a word:</label>
+<input type="text" id="capitalizeWord">
+<button onclick="capitalizeFirstLetter()">Enter</button>
+
+<!-- Problem 8: Check if word contains '@' and 'c' -->
+<h5>Problem 8: Check if Word Contains "@" and "c"</h5>
+<label for="checkWord">Enter a word:</label>
+<input type="text" id="checkWord">
+<button onclick="checkContainsAtAndC()">Enter</button>
+
+
+<!-- Problem 9: Check file extension -->
+<h5>Problema 9: File Extension Checker</h5>
+<label for="fileName">Enter file name (e.g., file.txt):</label>
+<input type="text" id="fileName">
+<button onclick="checkFileExtension()">Enter</button>
+
+
+<!-- Problem 10: Replace 'javascript' with 'JS m’agrada!' -->
+<h5>Problema 10: Replace "javascript" with "JS m'agrada!"</h5>
+<label for="replaceText">Enter a text:</label>
+<input type="text" id="replaceText">
+<button onclick="replaceJavaScript()">Enter</button>
+
+
+<!-- Problem 11: Replace spaces with commas -->
+<h5>Problema 11: Replace Spaces with Commas</h5>
+<label for="replaceSpacesText">Enter a text:</label>
+<input type="text" id="replaceSpacesText">
+<button onclick="replaceSpaces()">Enter</button>
+
+
+<!-- Problem 12: Trim spaces from start and end -->
+<h5>Problema 12: Trim Spaces from Start and End</h5>
+<label for="trimSpacesText">Enter a text:</label>
+<input type="text" id="trimSpacesText">
+<button onclick="trimSpaces()">Enter</button>
+
+
+<!-- Problem 13: Format time -->
+<h5>Problema 13: Format Time (hh/mm/ss)</h5>
+<label for="timeInput">Enter time (hh/mm/ss):</label>
+<input type="text" id="timeInput">
+<button onclick="formatTime()">Enter</button>
+
+
+<!-- Problem 14: Make word 10 characters long with '*' -->
+<h5>Problema 14: Pad Word to 10 Characters</h5>
+<label for="padWord">Enter a word:</label>
+<input type="text" id="padWord">
+<button onclick="padWordToTen()">Enter</button>
+
+
+<!-- Problem 15: Format number into USR-DDDDD -->
+   <h5>Problema 15: Format Number as USR-DDDDD</h5>
+    <label for="formatNumber">Enter a number:</label>
+    <input type="text" id="formatNumber">
+    <button onclick="formatNumber()">Enter</button>
+
+    <script>
+        // Problema 1: Check if value is a number
+        function checkIfNumber() {
+        let value = document.getElementById('numberCheck').value;
+        let result = isNaN(value) ? "It's not a number" : "It's a number";
+        console.log(result);
+    }
+
+        // Problem 2: Check if number is an integer or a decimal
+        function checkIfIntegerOrDecimal() {
+            let value = document.getElementById('integerCheck').value;
+            let result = Number.isInteger(parseFloat(value)) ? "Es un Enter" : "Es un decimal";
+            console.log(result);
+        }
+
+        // Problem 3: Temperature conversion
+        function convertTemperature() {
+            let conversion = document.getElementById("conversion").value;
+            let temperature = parseFloat(document.getElementById("temperature").value);
+            let result = "";
+
+            if (conversion === 'C') {
+                let celsius = (temperature - 32) * (5 / 9);
+                result = `${temperature}°F is equal to ${celsius.toFixed(2)}°C`;
+            } else if (conversion === 'F') {
+                let fahrenheit = (9 / 5) * temperature + 32;
+                result = `${temperature}°C is equal to ${fahrenheit.toFixed(2)}°F`;
+            } else {
+                result = "Please select a valid conversion option.";
+            }
+
+            console.log(result);
+        }
+
+        // Problem 4: Phone call cost
+        function calculateCallCost() {
+            let minutes = parseInt(document.getElementById('minutes').value);
+            let seconds = parseInt(document.getElementById('seconds').value);
+            
+            let baseCost = 0.10;
+            let perMinute = 0.05;
+            let totalMinutes = minutes + (seconds / 60);
+            let totalCost = baseCost + (totalMinutes * perMinute);
+            let totalWithTax = totalCost * 1.21; 
+
+            //document.getElementById('result4').textContent = `Cost without tax: €${totalCost.toFixed(2)}, Cost with tax: €${totalWithTax.toFixed(2)}`;
+            console.log(`Cost without tax: €${totalCost.toFixed(2)}, Cost with tax: €${totalWithTax.toFixed(2)}`);
+        }
+
+        // Problem 5: Check if 5-digit number starts and ends with the same digit
+        function checkFiveDigitNumber() {
+        let number = document.getElementById('fiveDigit').value;
+        let result = (number.length === 5 && !isNaN(number))
+            ? (number[0] === number[number.length - 1]
+                ? "Starts and ends with the same digit"
+                : "Does not start and end with the same digit")
+            : "Please enter a valid 5-digit number.";
+        console.log(result);
+        }
+         // Problem 6: Check if a word ends with a number or letter
+    function checkWordEnding() {
+        let paraula = document.getElementById('wordEnding').value;
+        let lastChar = paraula[paraula.length - 1];
+        let result = isNaN(lastChar) ? "Ends with a letter" : "Ends with a number";            
+        console.log(result);
+    }
+
+    // Problem 7: Capitalize first letter of a word
+    function capitalizeFirstLetter() {
+        let paraula = document.getElementById('capitalizeWord').value;
+        let result = paraula.charAt(0).toUpperCase() + paraula.slice(1).toLowerCase();
+       console.log(result);
+    }
+    // Problem 8: Check if word contains "@" and "c"
+    function checkContainsAtAndC() {
+        let paraula = document.getElementById('checkWord').value;
+        let containsAt = paraula.includes("@");
+        let containsC = paraula.includes("c");
+        if(containsAt && containsC){
+           console.log("Paraula contains both @ and c");
+        }else{
+            console.log("Paraula does not contain @ and c")
+        }
+    }
+
+    // Problem 9: Check file extension
+    function checkFileExtension() {
+        let filename = document.getElementById('fileName').value;
+        let fileFormat=filename.includes('.');
+        let extension = filename.split('.').pop();
+        if(!fileFormat){
+            console.log("Enter correct format");
+        }else{
+            console.log(extension);
+        }          
+       
+    }
+    // Problem 10: Replace "javascript" with "JS m’agrada!"
+    function replaceJavaScript() {
+        let text = document.getElementById('replaceText').value;
+        let result = text.replace(/javascript/g, "JS m'agrada!!");
+        if(!text.includes("javascript")){
+            console.log("El text no conte la paraula JavaScript");
+        }else{
+            console.log(result);
+        }
+    }
+
+    // Problem 11: Replace spaces with commas
+    function replaceSpaces() {
+        let text = document.getElementById('replaceSpacesText').value;
+        let result = text.replace(/ /g, ',');
+        if(text.includes(" ")){
+            console.log(result);  
+        }else{
+            console.log("El text no conte espai");
+        }
+        
+    }
+
+    // Problem 12: Remove spaces from start and end
+    function trimSpaces() {
+        let text = document.getElementById('trimSpacesText').value;
+        let result = text.trim();
+        console.log(result);
+        /*if(text.includes(" ")){
+            console.log(result); 
+        }else{
+            console.log("El text no conte espai");
+        }*/
+        
+    }
+    // Problem 13: Format time string
+    function formatTime() {
+        let time = document.getElementById('timeInput').value;
+        let [hh, mm, ss] = time.split('/');
+        let result = `L’hora introduïda és: ${hh}, els minuts: ${mm}, i els segons: ${ss}`;
+        console.log(result);
+    }
+
+    // Problem 14: Make word 10 characters long with '*'
+    function padWordToTen() {
+        let word = document.getElementById('padWord').value;
+        let result = word.padEnd(10, '*');
+        document.getElementById('result14').textContent = result;
+    }
+
+    // Problem 15: Format number into USR-DDDDD
+    function formatNumber() {
+        let number = document.getElementById('formatNumber').value;
+        let formattedNumber = number.padStart(5, '0');
+        document.getElementById('result15').textContent = `USR-${formattedNumber}`;
+    }
+    </script>
+</body>
+</html>
+  
+</body>
+</html>
