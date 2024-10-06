@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Problems Solutions</title>
+  <style>
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Problemes JavaScript</h1>
+<button onclick="checkIfNumber()">Problema 1: Check if a value is a number</button><br>
+<button onclick="checkIfIntegerOrDecimal()">Problema 2: Check if it's an integer or decimal</button><br>
+<button onclick="convertTemperature()">Problema 3: Temperature conversion</button><br>
+<button onclick="calculateCallCost()">Problema 4: Phone call cost calculator</button><br>
+<button onclick="checkFiveDigitNumber()">Problema 5: Check 5-digit number</button><br>
+<button onclick="checkWordEnding()">Problema 6: Check word ending</button><br>
+<button onclick="capitalizeFirstLetter()">Problema 7: Capitalize first letter</button><br>
+<button onclick="checkContainsAtAndC()">Problema 8: Check if word contains '@' and 'c'</button><br>
+<button onclick="checkFileExtension()">Problema 9: Check file extension</button><br>
+<button onclick="replaceJavaScript()">Problema 10: Replace 'javascript'</button><br>
+<button onclick="replaceSpaces()">Problema 11: Replace spaces with commas</button><br>
+<button onclick="trimSpaces()">Problema 12: Trim spaces</button><br>
+<button onclick="formatTime()">Problema 13: Format time</button><br>
+<button onclick="padWordToTen()">Problema 14: Add '*' to word</button><br>
+<button onclick="formatNumber()">Problema 15: Format number into USR-DDDDD</button><br>
+<button onclick="displayFormattedInfo()">Problema 16: Display formatted information</button><br>
+
+<script>
+        // Problem 1: Check if value is a number
+        function checkIfNumber() {
+            const valor= prompt("Introdueix un numero");
+            if(valor){
+        const num = Number(valor);
+        if(isNaN(num)){
+            console.log("No es un numero")
+        }else{
+            console.log("Es un numero");
+        }
+        }
+        }
+
+        // Problema 2: Check if integer or decimal
+      function checkIfIntegerOrDecimal() {
+    const valor2 = prompt("Enter a number:");
+    if (valor2) {
+        const valorNum = Number(valor2);
+        if (!isNaN(valorNum)) {
+            if (Number.isInteger(valorNum)) {
+                console.log("Es un integer");
+            } else {
+                console.log("Es un decimal");
+            }
+        } else {
+            console.log("Introdueix un valor valid");
+        }
+    } else {
+        console.log("Introduiex un valor");
+    }
+}
+
+        // Problem 3: Temperature conversion
+        function convertTemperature() {
+    const conversion = prompt("Enter 'C' to convert to Celsius or 'F' to convert to Fahrenheit:");
+
+    if (conversion && (conversion.toUpperCase() === 'C' || conversion.toUpperCase() === 'F')) {
+
+        const temperatureInput = prompt("Enter the temperature:");
+        const temperature = parseFloat(temperatureInput);
+
+        if (!isNaN(temperature)) {
+            if (conversion.toUpperCase() === 'C') {
+                const celsius = (temperature - 32) * 5 / 9;
+                console.log(`${temperature}°F is equal to ${celsius.toFixed(2)}°C`);
+            } else if (conversion.toUpperCase() === 'F') {
+                const fahrenheit = (temperature * 9 / 5) + 32;
+                console.log(`${temperature}°C is equal to ${fahrenheit.toFixed(2)}°F`);
+            }
+        } else {
+            console.log("Please enter a valid temperature number.");
+        }
+    } else {
+        console.log("Please enter a valid option: 'C' for Celsius or 'F' for Fahrenheit.");
+    }
+}
+
+
+        // Problem 4: Phone call cost calculator
+        function calculateCallCost() {
+            let minutes = parseInt(prompt("Enter call duration in minutes:"));
+            let seconds = parseInt(prompt("Enter call duration in seconds:"));
+            let baseCost = 0.10;
+            let perMinute = 0.05;
+            let totalMinutes = minutes + (seconds / 60);
+            let totalCost = baseCost + (totalMinutes * perMinute);
+            let totalWithTax = totalCost * 1.21;
+            console.log(`Cost without tax: €${totalCost.toFixed(2)}, Cost with tax: €${totalWithTax.toFixed(2)}`);
+        }
+
+        // Problem 5: Check if 5-digit number starts and ends with the same digit
+        function checkFiveDigitNumber() {
+            let number = prompt("Enter a 5-digit number:");
+            let result = number.length === 5 && !isNaN(number)
+                ? (number[0] === number[4] ? "Starts and ends with the same digit" : "Does not start and end with the same digit")
+                : "Please enter a valid 5-digit number.";
+            console.log(result);
+        }
+
+        // Problem 6: Check if word ends with a number or letter
+        function checkWordEnding() {
+            let word = prompt("Enter a word:");
+            let lastChar = word[word.length - 1];
+            let result = isNaN(lastChar) ? "Ends with a letter" : "Ends with a number";
+            console.log(result);
+        }
+
+        // Problem 7: Capitalize first letter of a word
+        function capitalizeFirstLetter() {
+            let word = prompt("Enter a word:");
+            let result = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            console.log(result);
+        }
+
+        // Problem 8: Check if word contains '@' and 'c'
+        function checkContainsAtAndC() {
+            let word = prompt("Enter a word:");
+            let containsAt = word.includes("@");
+            let containsC = word.includes("c");
+            if (containsAt && containsC) {
+                console.log("The word contains both '@' and 'c'");
+            } else {
+                console.log("The word does not contain both '@' and 'c'");
+            }
+        }
+
+        // Problem 9: Check file extension
+        function checkFileExtension() {
+            let filename = prompt("Enter the file name (e.g., file.txt):");
+            let extension = filename.split('.').pop();
+            console.log("File extension: " + extension);
+        }
+
+        // Problem 10: Replace 'javascript' with 'JS m’agrada!'
+        function replaceJavaScript() {
+            let text = prompt("Enter a text:");
+            let result = text.replace(/javascript/gi, "JS m'agrada!!");
+            console.log(result);
+        }
+
+        // Problem 11: Replace spaces with commas
+        function replaceSpaces() {
+            let text = prompt("Enter a text:");
+            let result = text.replace(/ /g, ',');
+            console.log(result);
+        }
+
+        // Problem 12: Trim spaces from start and end
+        function trimSpaces() {
+            let text = prompt("Enter a text:");
+            let result = text.trim();
+            console.log(result);
+        }
+
+        // Problem 13: Format time (hh/mm/ss)
+        function formatTime() {
+            let time = prompt("Enter time in the format (hh/mm/ss):");
+            let [hh, mm, ss] = time.split('/');
+            console.log(`L’hora introduïda és: ${hh}, els minuts: ${mm}, i els segons: ${ss}`);
+        }
+
+        // Problem 14: Make word 10 characters long with '*'
+        function padWordToTen() {
+            let word = prompt("Enter a word:");
+            let result = word.padEnd(10, '*');
+            console.log(result);
+        }
+
+        // Problem 15: Format number into USR-DDDDD
+        function formatNumber() {
+            let number = prompt("Enter a number up to 5 digits:");
+            let formattedNumber = number.padStart(5, '0');
+            console.log(`USR-${formattedNumber}`);
+        }
+
+        // Problem 16: Display formatted information
+        function displayFormattedInfo() {
+            let name = prompt("Enter your full name (first and last):");
+            let date = prompt("Enter today's date (DD/MM/YYYY):");
+            let email = prompt("Enter your email:");
+            let password = prompt("Enter your password:");
+            let [firstName, lastName] = name.split(' ');
+            let [day, month, year] = date.split('/');
+            let companyEmail = email.replace(/@.*/, "@iticbcn.cat");
+            let passwordDisplay = "******" + password.slice(-4);
+            console.log(`Barcelona ${day} de ${month} de l'any ${year}`);
+            console.log(`Benvolgut/da ${firstName.charAt(0).toUpperCase()}. ${lastName.toUpperCase()},`);
+            console.log(`Correu personal: ${email.trim()}`);
+            console.log(`Correu d'empresa: ${companyEmail}`);
+            console.log(`Password: ${passwordDisplay}`);
+            console.log("Atentament, ITICBcn");
+        }
+    </script>
+</body>
+</html>
